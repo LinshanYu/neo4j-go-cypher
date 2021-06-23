@@ -218,7 +218,7 @@ func (m *cypher) parse() *params_container.CypherInput {
 				}
 				returnStrs = append(returnStrs, returnCypherInput.Cypher)
 			}
-			cypher = fmt.Sprintf("%s return %s ", cypher, strings.Join(returnStrs, " and "))
+			cypher = fmt.Sprintf("%s return %s ", cypher, strings.Join(returnStrs, ","))
 		}
 		if nil != m.decorateCypher[orderDecorate] && 0 < len(m.decorateCypher[orderDecorate]) {
 			orders := m.decorateCypher[orderDecorate]
