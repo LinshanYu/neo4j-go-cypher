@@ -77,3 +77,9 @@
 |------------|:----|:------------------------|:---------------|:---------------|
 | connect | input | connector.Connect | neo4j连接 |  |
 | result | input | *params_container.Result | 返回结果 |  params_container.Result.Data为map[string][]interface{}, 该map的key为操作对象别名，value为操作结果集合 |
+
+### &ensp; &ensp; &ensp; &ensp; 11. Cypher.TxExec(ctx context.Context, connect connector.Connect) (*params_container.Result, error): 事务执行cypher
+| 参数  |   位置 |   类型     |  参数说明 |     备注 |
+|------------|:----|:------------------------|:---------------|:---------------|
+| connect | input | connector.Connect | neo4j连接 |  |
+| result | input | *params_container.Result | 返回结果 |  params_container.Result.Data为map[string][]interface{}, 该map的key为操作对象别名，value为操作结果集合 |
