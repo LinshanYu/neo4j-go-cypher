@@ -32,7 +32,7 @@ func (and *andCondition) cypher(name string) *params_container.CypherInput {
 		}
 		condStr = append(condStr, fmt.Sprintf("%s", cypherInput.Cypher))
 	}
-	cypher = fmt.Sprintf("%s", strings.Join(condStr, " and "))
+	cypher = fmt.Sprintf("(%s)", strings.Join(condStr, " and "))
 	return &params_container.CypherInput{
 		Cypher: cypher,
 		Params: respMap,
@@ -64,7 +64,7 @@ func (and *orCondition) cypher(name string) *params_container.CypherInput {
 		}
 		condStr = append(condStr, fmt.Sprintf("%s", cypherInput.Cypher))
 	}
-	cypher = fmt.Sprintf("%s", strings.Join(condStr, " or "))
+	cypher = fmt.Sprintf("(%s)", strings.Join(condStr, " or "))
 	return &params_container.CypherInput{
 		Cypher: cypher,
 		Params: respMap,
@@ -213,7 +213,7 @@ type inLabel struct {
 
 func (e *inLabel) cypher(name string) *params_container.CypherInput {
 
-	cypher := fmt.Sprintf("\"%s\" in labels(%s)", e.Label, name)
+	cypher := fmt.Sprintf("(\"%s\" in labels(%s))", e.Label, name)
 
 	return &params_container.CypherInput{
 		cypher,
